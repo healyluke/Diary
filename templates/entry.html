@@ -1,0 +1,112 @@
+{% extends "base.html" %} {% block content %}
+
+<head>
+  <title>Flask Project</title>
+  <style>
+    #content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    .main-container {
+      display: grid;
+      place-items: center;
+      width:40vw;
+      height:60vh;
+      border-radius: 3%;
+    }
+    .x{
+      display:grid;
+      place-items: center;
+    }
+    textarea{
+      resize:none
+    }
+  </style>
+  <!--
+  <style>
+    button {
+      font-size: 20px;
+      height: 100%;
+    }
+    #content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    #content >*{
+      position: relative;
+      bottom:8%;
+    }
+    .d-flex {
+      gap: 20px;
+      justify-content: flex-start;
+    }
+    .main-container {
+      display: grid;
+      place-items: center;
+    }
+    .preview {
+      display:grid;
+      place-items: center;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      height: max(4rem, fit-content);
+      max-height: fit-content;
+      min-width: min-content;
+      margin:0;
+    }
+    textarea {
+        resize: none;
+      }
+    @media(min-width :768px){
+      .preview{
+        height:4rem !important;
+      }
+    }
+    .x{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:1rem;
+    }
+    .add-button{
+      width:40%;
+      justify-self: center;
+    }
+
+    .docs-row{
+      width:75%;
+    }
+    h1{
+      text-align: center;
+      justify-self: start;
+    }
+  </style>
+  -->
+</head>
+
+<div class="container main-container bg-light">
+  <div class=" docs-row container-fluid">
+    <div class="col  x container-fluid">
+      <form action="" method="post">
+        {{form.hidden_tag()}}
+        <dl>
+          <dt>Title:</dt>
+          <dd>{{ form.title }}</dd>
+          <dt>Post:</dt>
+          <dd>{{ form.body(cols="35", rows="5") }}</dd>
+          <dt>{{form.submit}}</dt>
+    
+        </dl>
+    
+      </form>
+      <a class = "btn btn-sm btn-outline-danger" href="{{url_for('delete',post_id=entry.id)}}">Delete</a>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+  main {
+      height: 60vh;
+      width: 40vw !important;
+      border-radius: 3%;
+      -webkit-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.55); 
+      box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.55);
+      background-color: white;
+    }
+</style>
+  <div>
+    {% with messages = get_flashed_messages() %}  
+         {% if messages %}  
+               {% for message in messages %}  
+                    <div class = "alert alert-primary">{{ message  }}</div>  
+               {% endfor %}  
+         {% endif %}  
+      {% endwith %}  
+    <main class = "">
+      <a class = "col-md-6 text-dark" href=" {{url_for('login')}}"><br> Log in </a>
+      <br>
+      <a class = "col-md-6 text-dark" href=" {{url_for('register')}}"> <br> Sign Up </a>
+    </main>
+    
+  </div>
+  {% endblock %}

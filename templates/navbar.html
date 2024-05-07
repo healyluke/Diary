@@ -1,0 +1,125 @@
+<style>
+  ul {
+    width: 60%;
+    gap: 2.5%;
+    align-items: center;
+  }
+  ul > a {
+    width: 10%;
+  }
+  .disabled {
+    color: black !important;
+  }
+  nav {
+    max-width: 100vw;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <svg
+      viewBox="0 0 64 64"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      aria-hidden="true"
+      role="img"
+      width="40px"
+      class="iconify iconify--emojione-monotone"
+      preserveAspectRatio="xMidYMid meet"
+      fill="#007bff"
+      stroke="#007bff"
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        <path
+          d="M32 2C15.432 2 2 15.432 2 32s13.432 30 30 30s30-13.432 30-30S48.568 2 32 2zm11.275 44.508h-20.55V17.492h6.063v23.799h14.488v5.217z"
+          fill="#3276c3"
+        ></path>
+      </g>
+    </svg>
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a
+          class="nav-link {{'disabled' if home_is_current_page }}"
+          href="{{url_for('home')}}"
+          >Home <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        {%if not logged_in%}
+        <a
+          class="nav-link {{'disabled' if login_is_current_page }} "
+          href="{{url_for('login')}}"
+          >Log In</a
+        >
+        {%else%}
+        <a
+          class="nav-link"
+          href="{{url_for('welcome')}}"
+          >Your entries</a
+        >
+        {% endif %}
+      </li>
+      <li class="nav-item">
+        {%if not logged_in%}
+        <a
+          class="nav-link {{'disabled' if register_is_current_page }} {{'disabled' if logged_in}}"
+          href="{{url_for('register')}}"
+          >Sign Up</a
+        >
+        {%else%}
+        <a
+          class="nav-link"
+          href="{{url_for('logout')}}"
+          >Log out</a
+        >
+        {% endif %}
+        
+      </li>
+      <li class="nav-item">
+        <a href="{{url_for('home')}}"> About Me </a>
+      </li>
+      <!--
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      -->
+    </ul>
+    
+  </div>
+</nav>

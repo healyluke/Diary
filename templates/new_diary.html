@@ -1,0 +1,57 @@
+{% extends "base.html" %} {% block content %}
+<style>
+  textarea {
+        resize: none;
+      }
+    #content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    .main-container {
+      display: grid;
+      width:40vw;
+      height:60vh;
+      border-radius: 3%;
+    }
+    form{
+      margin-top: 3%;
+    }
+    form dl{
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      height:80%;
+    }
+    dl>*{
+      max-width:100%;
+    }
+    .formBody{
+      width:100%;
+      height:80%
+    }
+    .formBody textarea{
+      width:100%;
+      height:100%;
+    }
+    .formTitle textarea{
+      width:100%;
+      height:100%;
+    }
+</style>
+<div class="container main-container bg-light">
+<form action="" method="post">
+    {{form.hidden_tag()}}
+    <dl>
+      <dt>Title:</dt>
+      <dd class = "formTitle">{{ form.title }}</dd>
+      <dt>Post:</dt>
+      <dd class = "formBody">{{ form.body() }}</dd>
+      <dt>{{form.submit}}</dt>
+
+    </dl>
+
+  </form>
+</div>
+{% endblock %}
